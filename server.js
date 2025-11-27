@@ -129,12 +129,13 @@ app.get('/api/rates/history', requireAdmin, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
   console.log(`Base de datos: MySQL (tipos_cambio)`);
   console.log(`Endpoints disponibles:`);
   console.log(`   GET  /api/rates         - Obtener tasa actual`);
   console.log(`   POST /api/rates         - Guardar nueva tasa`);
   console.log(`   GET  /api/rates/history - Obtener historial`);
 });
+
 S
