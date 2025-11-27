@@ -10,16 +10,16 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: { rejectUnauthorized: false } // IMPORTANTE para Railway
+  ssl: { rejectUnauthorized: false }
 });
 
 pool.getConnection()
-  .then(connection => {
-    console.log('Conexión a MySQL exitosa');
-    connection.release();
+  .then(conn => {
+    console.log("Conexión MySQL exitosa");
+    conn.release();
   })
   .catch(err => {
-    console.error('Error de conexión a MySQL:', err.message);
+    console.error("Error MySQL:", err.message);
   });
 
 module.exports = pool;
